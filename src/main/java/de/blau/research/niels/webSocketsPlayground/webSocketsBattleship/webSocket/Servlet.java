@@ -5,8 +5,10 @@ import com.sun.grizzly.websockets.WebSocketEngine;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+@WebServlet(name = "WebSocketServlet", urlPatterns = "/WebSocketServlet", loadOnStartup = 1)
 public class Servlet extends HttpServlet {
     private final App app = new App();
 

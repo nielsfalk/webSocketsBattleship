@@ -16,17 +16,6 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <description>WebSocketServlet</description>
-        <servlet-name>WebSocketServlet</servlet-name>
-        <servlet-class>de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.webSocket.Servlet
-        </servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>WebSocketServlet</servlet-name>
-        <url-pattern>/WebSocketServlet</url-pattern>
-    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
