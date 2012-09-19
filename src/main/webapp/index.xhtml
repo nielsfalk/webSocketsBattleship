@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:s="http://www.blau.de/public/battleship/taglib/statics">
+
+<h:head>
+    <title>BattleShip WebSockets</title>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript">
+        var ws;
+        var gameOver = false;
+        var fire = function (position) {
+            send(position)
+        };
+
+        var send = function (msg) {
+            console.log("send:" + msg);
+            ws.send(msg);
+        };
+
+        var notify = function (msg) {
+            console.log("notify:" + msg);
+            $("#gameStatus").text(msg);
+        };
+
+        var receive = function (event) {
+            console.log("received:" + event.data);
+            var command = eval("(" + event.data + ")");
+            if (command.gameOver) {
+                notify(command.won ? "you won" : "game over");
+                gameOver = true;
+            }
+            if (gameOver) {
+                return;
+            }
+            if (command.wait) {
+                notify("waiting for another player");
+            }
+            if (command.waitingOver) {
+                notify("here we go");
+            }
+            if (command.otherLeft) {
+                notify("the other left. sorry :(");
+            }
+
+
+            if (command.ships) {
+                command.ships.forEach(function (position) {
+                    $("#my" + position).css("background-color", "black");
+                });
+            }
+            if (command.othersTurn) {
+                notify("it's not your turn");
+            }
+            if (command.hit) {
+                var missed = command.status == "tried";
+                var my = command.my;
+                $((my ? "#my" : "#other") + command.hit).css("background-color", missed ? "lightgray" : "red");
+                if (my) {
+                    notify((missed ? "haha he missed :) your turn" : "omg he got me"));
+                } else {
+                    notify(missed ? "missed :(" : "got something :) go on");
+                }
+            }
+
+            var $textarea = $('#messages');
+            $textarea.val($textarea.val() + event.data + "\n");
+            $textarea.animate({
+                scrollTop:$textarea.height()
+            }, 1000);
+        };
+
+        var iMThere = function () {
+            var url = 'ws://' + window.location.host + '/battleShip/WebSocketServlet/';
+            ws = new WebSocket(url);
+            ws.onopen = function (event) {
+                send("iMThere");
+            };
+            ws.onmessage = receive;
+            ws.onclose = function (event) {
+            };
+        };
+
+        var closeSocket = function () {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+        };
+    </script>
+</h:head>
+<h:body onload="iMThere()" onunload="closeSocket();">
+    <h1>BattleShip with webSockets</h1>
+
+    <div id="gameStatus"></div>
+    <div id="other">Other:
+        <table class="field">
+            <ui:repeat value="#{s:fieldSize()}" var="row">
+                <tr>
+                    <ui:repeat value="#{row}" var="position">
+                        <td id="other#{position}" onclick="fire('#{position}')"/>
+                    </ui:repeat>
+                </tr>
+            </ui:repeat>
+        </table>
+    </div>
+    <div id="my">my:
+        <table class="field">
+            <ui:repeat value="#{s:fieldSize()}" var="row">
+                <tr>
+                    <ui:repeat value="#{row}" var="position">
+                        <td id="my#{position}" onclick="fire('#{position}')"/>
+                    </ui:repeat>
+                </tr>
+            </ui:repeat>
+        </table>
+    </div>
+</h:body>
+</html>
