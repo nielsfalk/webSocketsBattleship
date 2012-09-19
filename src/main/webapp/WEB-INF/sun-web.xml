@@ -3,10 +3,4 @@
         "http://www.sun.com/software/appserver/dtds/sun-web-app_2_5-0.dtd">
 <sun-web-app error-url="">
     <context-root>/battleShip</context-root>
-    <class-loader delegate="true"/>
-    <jsp-config>
-        <property name="keepgenerated" value="true">
-            <description>Keep a copy of the generated servlet class java code.</description>
-        </property>
-    </jsp-config>
 </sun-web-app>
