@@ -20,8 +20,10 @@ public class MatchTest {
         Match match = new Match(fieldPlayer1, fieldPlayer2);
         match.shoot(match.whoSNext(), new Position(0, 0));
         match.shoot(match.whoSNext(), new Position(9, 9));
+        match.shoot(match.whoSNext(), new Position(9, 9));
 
         match.shoot(match.whoSNext(), new Position(1, 0));
+        match.shoot(match.whoSNext(), new Position(9, 9));
         match.shoot(match.whoSNext(), new Position(9, 9));
 
         assertThat(match.getWinner(), is(nullValue()));
@@ -34,12 +36,12 @@ public class MatchTest {
     public void RandomGame() {
         Match match = new Match();
         while (match.getWinner() == null) {
-            match.shoot(match.whoSNext(), new Position(9, 9));
+            if (match.whoSNext() == first) {
+                match.shoot(match.whoSNext(), new Position(9, 9));
+            }
             match.shoot(match.whoSNext(), Position.random(standard));
             System.out.println("--------------------\n" + match.fields.get(first));
         }
         assertThat(match.getWinner(), is(second));
-
-
     }
 }
