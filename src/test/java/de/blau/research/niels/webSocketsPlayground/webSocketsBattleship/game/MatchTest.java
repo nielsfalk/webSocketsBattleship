@@ -1,13 +1,13 @@
-package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming;
+package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game;
 
 import org.junit.Test;
 
 import java.util.Arrays;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Field.Rules.standard;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Match.Player.first;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Match.Player.second;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Ship.Direction.horizontal;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.Rules.standard;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Match.Player.first;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Match.Player.second;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Ship.Direction.horizontal;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;

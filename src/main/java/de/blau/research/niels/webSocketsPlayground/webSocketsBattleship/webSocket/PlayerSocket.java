@@ -4,12 +4,12 @@ import com.sun.grizzly.websockets.DataFrame;
 import com.sun.grizzly.websockets.DefaultWebSocket;
 import com.sun.grizzly.websockets.ProtocolHandler;
 import com.sun.grizzly.websockets.WebSocketListener;
-import de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Field;
-import de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Match;
+import de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field;
+import de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Match;
 import org.json.JSONObject;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Match.Player.first;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Match.Player.second;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Match.Player.first;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Match.Player.second;
 
 class PlayerSocket extends DefaultWebSocket {
     private PlayerSocket otherPlayer;

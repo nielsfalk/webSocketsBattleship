@@ -1,13 +1,13 @@
-package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming;
+package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game;
 
 
 import org.junit.Test;
 
 import java.util.Arrays;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Field.Cell.hit;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Field.Cell.tried;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Ship.Direction.horizontal;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.Cell.hit;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.Cell.tried;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Ship.Direction.horizontal;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 public class FieldTest {
