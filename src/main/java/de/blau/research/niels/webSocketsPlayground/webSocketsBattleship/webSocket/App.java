@@ -5,12 +5,12 @@ import com.sun.grizzly.websockets.ProtocolHandler;
 import com.sun.grizzly.websockets.WebSocket;
 import com.sun.grizzly.websockets.WebSocketApplication;
 import com.sun.grizzly.websockets.WebSocketListener;
-import de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game.Position;
+import de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Position;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game.Field.Rules.standard;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Field.Rules.standard;
 
 public class App extends WebSocketApplication {
     private static PlayerSocket pendingPlayer;

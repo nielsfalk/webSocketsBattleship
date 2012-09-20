@@ -1,4 +1,4 @@
-package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game;
+package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming;
 
 import java.util.Random;
 

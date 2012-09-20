@@ -1,4 +1,4 @@
-package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game;
+package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming;
 
 import org.json.JSONObject;
 
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game.Field.Cell.tried;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game.Ship.Direction;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Field.Cell.tried;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Ship.Direction;
 
 public class Field {
     public final List<Ship> ships;

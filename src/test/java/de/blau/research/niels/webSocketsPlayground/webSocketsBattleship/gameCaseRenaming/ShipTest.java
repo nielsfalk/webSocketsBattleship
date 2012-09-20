@@ -1,9 +1,9 @@
-package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game;
+package de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming;
 
 import org.junit.Test;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game.Ship.Direction.horizontal;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.Game.Ship.Direction.vertical;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Ship.Direction.horizontal;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.gameCaseRenaming.Ship.Direction.vertical;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
