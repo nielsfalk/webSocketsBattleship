@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.Cell.tried;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.CellState.tried;
 import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Ship.Direction;
 
 public class Field {
@@ -38,11 +38,11 @@ public class Field {
         return true;
     }
 
-    public Cell shout(Position shot) {
+    public CellState shout(Position shot) {
         shots.add(shot);
         for (Ship ship : ships) {
             if (ship.hit(shot)) {
-                return Cell.hit;
+                return CellState.hit;
             }
         }
         return tried;
@@ -104,18 +104,19 @@ public class Field {
             result += result.isEmpty() ? "" : "\n";
             for (int x = 0; x < rules.fieldSize.x; x++) {
                 Position position = new Position(x, y);
-                result += Cell.get(shipPositions.contains(position), shots.contains(position)).toChar();
+                result += CellState.get(shipPositions.contains(position), shots.contains(position)).toChar();
             }
         }
         return result;
     }
 
-    public static enum Cell {
+
+    public static enum CellState {
         nothingYet(' '), tried('.'), notYetDetected('$'), hit('X');
         private final char c;
 
 
-        Cell(char c) {
+        CellState(char c) {
             this.c = c;
         }
 
@@ -123,7 +124,7 @@ public class Field {
             return c;
         }
 
-        public static Cell get(boolean shipHere, boolean alreadyShot) {
+        public static CellState get(boolean shipHere, boolean alreadyShot) {
             return shipHere ? alreadyShot ? hit : notYetDetected : alreadyShot ? tried : nothingYet;
         }
     }

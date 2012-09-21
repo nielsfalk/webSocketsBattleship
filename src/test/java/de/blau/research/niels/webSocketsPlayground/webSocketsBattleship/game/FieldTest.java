@@ -5,11 +5,12 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.Cell.hit;
-import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.Cell.tried;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.CellState.hit;
+import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Field.CellState.tried;
 import static de.blau.research.niels.webSocketsPlayground.webSocketsBattleship.game.Ship.Direction.horizontal;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+
 public class FieldTest {
 
     @Test

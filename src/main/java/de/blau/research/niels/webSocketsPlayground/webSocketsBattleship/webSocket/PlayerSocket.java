@@ -43,7 +43,7 @@ class PlayerSocket extends DefaultWebSocket {
         } else if (match.whoSNext() != player) {
             simpleResponse("othersTurn");
         } else {
-            Field.Cell shoot = match.shoot(player, text);
+            Field.CellState shoot = match.shoot(player, text);
             send(respondHit(text, shoot, false));
             otherPlayer.send(respondHit(text, shoot, true));
             if (match.getWinner() == player) {
@@ -56,7 +56,7 @@ class PlayerSocket extends DefaultWebSocket {
         }
     }
 
-    private String respondHit(String position, Field.Cell shoot, boolean my) {
+    private String respondHit(String position, Field.CellState shoot, boolean my) {
         JSONObject result = new JSONObject();
         if (my) {
             result.put("my", true);
